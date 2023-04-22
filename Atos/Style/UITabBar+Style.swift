@@ -3,7 +3,7 @@ import UIKit
 extension UITabBar {
     func applyAtosStyling() {
         let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.backgroundColor = .backgroundColor
+        tabBarAppearance.backgroundColor = .atosBackgroundColor
 
         updateTabBarItemAppearance(appearance: tabBarAppearance.compactInlineLayoutAppearance)
         updateTabBarItemAppearance(appearance: tabBarAppearance.inlineLayoutAppearance)

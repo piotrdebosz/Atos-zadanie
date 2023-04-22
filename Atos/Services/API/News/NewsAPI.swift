@@ -27,8 +27,7 @@ enum NewsAPI: API {
     var parameters: [URLQueryItem] {
         switch self {
         case let .getTopHeadlines(country, page):
-            // TODO: - move api key somwhere
-            var params = [URLQueryItem(name: "apiKey", value: "8906011f7dc14fddbbdf5bbc47b93e3a")]
+            var params = [URLQueryItem(name: "apiKey", value: apiKey)]
 
             if let country = country {
                 params.append(URLQueryItem(name: "country", value: country))
@@ -47,5 +46,18 @@ enum NewsAPI: API {
         case .getTopHeadlines:
             return .get
         }
+    }
+
+    private var apiKey: String {
+        // I keep api key in Info.plist file
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: Constants.newsApiKey.rawValue) as? String else {
+            fatalError("Missing news api key. \(Constants.newsApiKey.rawValue) not found in Info.plist")
+        }
+
+        return apiKey
+    }
+
+    private enum Constants: String {
+        case newsApiKey = "NEWS_API_KEY"
     }
 }

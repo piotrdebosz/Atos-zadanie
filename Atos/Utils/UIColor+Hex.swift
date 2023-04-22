@@ -1,5 +1,7 @@
 import UIKit
 
+// Allows to init UIColor with hex: UIColor(hex: 0x000000)
+//
 extension UIColor {
     convenience init(hex: Int, alpha: CGFloat = 1.0) {
         let red = CGFloat((hex & 0xFF0000) >> 16) / 255.0

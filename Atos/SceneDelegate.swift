@@ -9,7 +9,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let navigationController = UINavigationController()
         navigationController.setNavigationBarHidden(true, animated: false)
-        let container = DIContainer()
+
+        let container = DependencyContainer()
+
         appCoordinator = AppCoordinator(navigationController: navigationController, dependencyContainer: container)
         appCoordinator?.start()
 

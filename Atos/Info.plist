@@ -15,11 +15,11 @@
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
+	<key>NEWS_API_KEY</key>
+	<string>8906011f7dc14fddbbdf5bbc47b93e3a</string>
 </dict>
 </plist>

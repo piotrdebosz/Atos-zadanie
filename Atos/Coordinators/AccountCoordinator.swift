@@ -1,18 +1,20 @@
 import UIKit
 
-class AccountCoordinator: Coordinator {
+final class AccountCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
 
-    let dependencyContainer: DIContainerType
+    private let dependencyContainer: DependencyContainerType
 
-    init(navigationController: UINavigationController, dependencyContainer: DIContainerType) {
+    init(navigationController: UINavigationController, dependencyContainer: DependencyContainerType) {
         self.navigationController = navigationController
         self.dependencyContainer = dependencyContainer
     }
 
     func start() {
-        let viewController = AccountViewController(viewModel: dependencyContainer.resolve(AccountViewModelType.self))
-        navigationController.setViewControllers([viewController], animated: false)
+        let accountViewModel = dependencyContainer.resolve(AccountViewModelType.self)
+        let accountViewController = AccountViewController(viewModel: accountViewModel)
+
+        navigationController.setViewControllers([accountViewController], animated: false)
     }
 }

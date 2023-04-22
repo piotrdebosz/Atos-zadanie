@@ -1,12 +1,11 @@
-//
-//  UITableView+DequeueCells.swift
-//  Atos
-//
-//  Created by Piotr Debosz on 21/04/2023.
-//
-
 import UIKit
 
+// Allows to easily register and dequeue cell in UITableView
+// just by using cell class type:
+//
+// tableView.dequeueReusableCell(MyCell.self, for: indexPath)
+// tableView.registerCell(MyCell.self)
+//
 extension UITableView {
     func dequeueReusableCell<Cell: UITableViewCell>(_ cellType: Cell.Type, for indexPath: IndexPath) -> Cell {
         let identifier = String(describing: cellType)

@@ -1,12 +1,12 @@
 import UIKit
 
-class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
 
-    private let dependencyContainer: DIContainerType
+    private let dependencyContainer: DependencyContainerType
 
-    init(navigationController: UINavigationController, dependencyContainer: DIContainerType) {
+    init(navigationController: UINavigationController, dependencyContainer: DependencyContainerType) {
         self.navigationController = navigationController
         self.dependencyContainer = dependencyContainer
     }
@@ -22,6 +22,7 @@ class AppCoordinator: Coordinator {
         loginCoordinator.start()
     }
 
+    // Starts the home flow after successful login
     func didFinishLogin() {
         let homeCoordinator = HomeCoordinator(
             navigationController: navigationController,
