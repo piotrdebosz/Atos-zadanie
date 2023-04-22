@@ -383,6 +383,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF5A148D29F2C8CE0067E183 /* Build configuration list for PBXNativeTarget "Atos" */;
 			buildPhases = (
+				AF5A150429F43AC40067E183 /* SwiftLint */,
 				AF5A145F29F2C8CC0067E183 /* Sources */,
 				AF5A146029F2C8CC0067E183 /* Frameworks */,
 				AF5A146129F2C8CC0067E183 /* Resources */,
@@ -501,6 +502,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AF5A150429F43AC40067E183 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH=/opt/homebrew/bin:$PATH\nif which swiftlint >/dev/null; then\n    swiftlint\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AF5A145F29F2C8CC0067E183 /* Sources */ = {
