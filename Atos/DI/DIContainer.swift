@@ -34,7 +34,8 @@ class DIContainer: DIContainerType {
         register(FeedViewModelType.self, scope: .transient) { resolver in
             FeedViewModel(
                 networkManager: resolver.resolve(NetworkManagerType.self),
-                authenticationService: resolver.resolve(AuthenticationServiceType.self))
+                authenticationService: resolver.resolve(AuthenticationServiceType.self)
+            )
         }
 
         register(AccountViewModelType.self, scope: .transient) { resolver in

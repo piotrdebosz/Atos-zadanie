@@ -14,7 +14,8 @@ class AppCoordinator: Coordinator {
     func start() {
         let loginCoordinator = LoginCoordinator(
             navigationController: navigationController,
-            dependencyContainer: dependencyContainer)
+            dependencyContainer: dependencyContainer
+        )
 
         loginCoordinator.parentCoordinator = self
         childCoordinators.append(loginCoordinator)
@@ -24,7 +25,8 @@ class AppCoordinator: Coordinator {
     func didFinishLogin() {
         let homeCoordinator = HomeCoordinator(
             navigationController: navigationController,
-            dependencyContainer: dependencyContainer)
+            dependencyContainer: dependencyContainer
+        )
         childCoordinators.append(homeCoordinator)
         homeCoordinator.start()
     }

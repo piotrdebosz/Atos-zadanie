@@ -25,24 +25,28 @@ class HomeCoordinator: Coordinator {
         let feedTabBarItem = UITabBarItem(
             title: nil,
             image: UIImage(systemName: "house", withConfiguration: imageConfiguration),
-            tag: 0)
+            tag: 0
+        )
 
         feedNavigationController.tabBarItem = feedTabBarItem
 
         let accountTabBarItem = UITabBarItem(
             title: nil,
             image: UIImage(systemName: "person", withConfiguration: imageConfiguration),
-            tag: 1)
+            tag: 1
+        )
         accountNavigationController.tabBarItem = accountTabBarItem
 
         let feedCoordinator = FeedCoordinator(
             navigationController: feedNavigationController,
-            dependencyContainer: dependencyContainer)
+            dependencyContainer: dependencyContainer
+        )
         feedCoordinator.start()
 
         let accountCoordinator = AccountCoordinator(
             navigationController: accountNavigationController,
-            dependencyContainer: dependencyContainer)
+            dependencyContainer: dependencyContainer
+        )
         accountCoordinator.start()
 
         childCoordinators = [feedCoordinator, accountCoordinator]
