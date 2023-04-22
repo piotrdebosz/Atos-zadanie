@@ -33,7 +33,8 @@ extension DependencyContainerType {
             type: Value.self,
             argumentsType: Factory.self,
             factory: factory,
-            scope: scope)
+            scope: scope
+        )
     }
 
     func register<Value, Arg1>(_ type: Value.Type, scope: DependencyScope, _ factory: @escaping Factory1Arg<Arg1>) {
@@ -43,7 +44,8 @@ extension DependencyContainerType {
             type: Value.self,
             argumentsType: Factory1Arg<Arg1>.self,
             factory: factory,
-            scope: scope)
+            scope: scope
+        )
     }
 
     private func resolve<Value, Arguments>(_ type: Value.Type, invoker: @escaping ((Arguments) -> Any) -> Any) -> Value {

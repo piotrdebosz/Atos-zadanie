@@ -48,7 +48,8 @@ class DependencyContainer: DependencyContainerType {
         register(ArticleViewModelType.self, scope: .transient) { resolver, article in
             ArticleViewModel(
                 article: article,
-                imageLoader: resolver.resolve(ImageLoaderType.self))
+                imageLoader: resolver.resolve(ImageLoaderType.self)
+            )
         }
 
         register(AccountViewModelType.self, scope: .transient) { resolver in

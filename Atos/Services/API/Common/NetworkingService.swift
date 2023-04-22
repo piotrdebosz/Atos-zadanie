@@ -49,4 +49,5 @@ final class NetworkingService: NetworkingServiceType {
         } catch {
             return .failure(Error.invalidResponse)
         }
-    }}
+    }
+}

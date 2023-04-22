@@ -39,7 +39,6 @@ class FeedViewController: UIViewController, CastView, Alertable {
         castView.tableView.delegate = tableViewDelegate
         castView.tableView.registerCell(ArticleCell.self)
 
-
         castView.refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
 
         viewModel.viewDidLoad()
