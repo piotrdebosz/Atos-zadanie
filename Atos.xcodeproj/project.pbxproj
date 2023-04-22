@@ -135,7 +135,6 @@
 		AF5A14FC29F416E50067E183 /* AuthenticationMockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMockService.swift; sourceTree = "<group>"; };
 		AF5A14FF29F422620067E183 /* DIContainerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainerType.swift; sourceTree = "<group>"; };
 		AF5A150129F425120067E183 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
-		AF5A150329F4385F0067E183 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +201,6 @@
 				AF5A146F29F2C8CE0067E183 /* Assets.xcassets */,
 				AF5A147129F2C8CE0067E183 /* LaunchScreen.storyboard */,
 				AF5A147429F2C8CE0067E183 /* Info.plist */,
-				AF5A150329F4385F0067E183 /* README.md */,
 			);
 			path = Atos;
 			sourceTree = "<group>";
