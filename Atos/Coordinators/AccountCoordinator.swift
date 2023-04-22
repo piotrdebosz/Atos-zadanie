@@ -3,7 +3,7 @@ import UIKit
 class AccountCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-    
+
     let dependencyContainer: DIContainerType
 
     init(navigationController: UINavigationController, dependencyContainer: DIContainerType) {
@@ -12,7 +12,7 @@ class AccountCoordinator: Coordinator {
     }
 
     func start() {
-        let accountViewController = AccountViewController(viewModel: dependencyContainer.resolve(AccountViewModelType.self))
-        navigationController.setViewControllers([accountViewController], animated: false)
+        let viewController = AccountViewController(viewModel: dependencyContainer.resolve(AccountViewModelType.self))
+        navigationController.setViewControllers([viewController], animated: false)
     }
 }

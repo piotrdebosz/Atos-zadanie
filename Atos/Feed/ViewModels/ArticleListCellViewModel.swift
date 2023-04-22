@@ -13,20 +13,20 @@ protocol ArticleListCellViewModelType {
 }
 
 struct ArticleListCellViewModel: ArticleListCellViewModelType {
-    private let _author: String?
+    private let tempAuthor: String?
     let title: String
-    
+
     init(author: String?, title: String) {
-        _author = author
+        tempAuthor = author
         self.title = title
     }
-    
+
     // TODO: refactor
     var author: String {
-        if let _author = _author, _author != "" {
-            return _author
+        if let author = tempAuthor, !author.isEmpty {
+            return author
         }
-        
+
         return "Anonim"
     }
 }

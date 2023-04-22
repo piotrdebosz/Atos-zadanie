@@ -7,16 +7,17 @@ class LoginViewController: UIViewController, Alertable {
 
     init(viewModel: LoginViewModelType) {
         self.viewModel = viewModel
-        
+
         super.init(nibName: nil, bundle: nil)
-        
+
         self.viewModel.delegate = self
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func loadView() {
         view = loginView
     }
@@ -38,7 +39,7 @@ extension LoginViewController: LoginViewModelDelegate {
     func loginDidFail() {
         showAlertWithMessage(title: "Error", message: "Logowanie sie nie powiodło.")
     }
-    
+
     func loginSuccessful() {
         coordinator?.didFinishLogin()
     }

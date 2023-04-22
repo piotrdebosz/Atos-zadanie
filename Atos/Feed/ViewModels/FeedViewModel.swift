@@ -9,9 +9,9 @@ protocol FeedViewModelDelegate: AnyObject {
 protocol FeedViewModelType: AnyObject {
     var delegate: FeedViewModelDelegate? { get set }
     var coordinatorDelegate: FeedCoordinatorDelegate? { get set }
-    
+
     var userName: String { get }
-    
+
     func viewDidLoad()
     func scrolledToTheBottom()
     func refreshDataInitiatedByUser()
@@ -20,10 +20,10 @@ protocol FeedViewModelType: AnyObject {
 
 class FeedViewModel: FeedViewModelType {
     private let networkManager: NetworkManagerType
-    
+
     weak var delegate: FeedViewModelDelegate?
     weak var coordinatorDelegate: FeedCoordinatorDelegate?
-    
+
     var articles: [Article] = [] {
         didSet {
             articlesListCellViewModels = createArticlesListCellViewModels(articles: articles)
@@ -37,87 +37,89 @@ class FeedViewModel: FeedViewModelType {
             }
         }
     }
-    
-    var isLoading: Bool = false {
+
+    var isLoading = false {
         didSet {
             DispatchQueue.main.async {
                 self.delegate?.didChangeLoadingState(isLoading: self.isLoading)
             }
         }
     }
-    
+
     var userName: String {
         guard let user = authenticationService.currentUser else {
             fatalError("You cannot be here without logged in user")
         }
-        
+
         return user.login
     }
-    
+
     private var lastDownloadedPage = 1
     private var hasMorePages = true
-    
+
     private let authenticationService: AuthenticationServiceType
-    
+
     init(networkManager: NetworkManagerType, authenticationService: AuthenticationServiceType) {
         self.networkManager = networkManager
         self.authenticationService = authenticationService
     }
-    
+
     func viewDidLoad() {
         fetchArticles()
     }
-    
+
     func scrolledToTheBottom() {
         if hasMorePages {
             fetchArticles(page: lastDownloadedPage + 1)
         }
     }
-    
+
     func refreshDataInitiatedByUser() {
         fetchArticles()
     }
 
-    
     private func createArticlesListCellViewModels(articles: [Article]) -> [ArticleListCellViewModelType] {
         return articles.map { article in
             ArticleListCellViewModel(author: article.author, title: article.title)
         }
     }
-    
+
     func userSelectedArticle(at index: Int) {
         coordinatorDelegate?.didSelectArticle(articles[index])
     }
-    
+
     func fetchArticles(page: Int? = nil) {
         guard !isLoading else {
             return
         }
-        
+
         isLoading = true
-        
+
         Task {
-            let result: Result<ArticleResponse, Error> = await networkManager.request(endpoint: NewsAPI.getTopHeadlines(country: "us", page: page))
-            
+            let result: Result<ArticleResponse, Error> = await networkManager
+                .request(endpoint: NewsAPI.getTopHeadlines(country: "us", page: page))
+
             switch result {
-            case .success(let response):
+            case let .success(response):
                 if let page = page {
                     lastDownloadedPage = page
-                    articles = articles + response.articles
+
+                    let newArticles = articles + response.articles
+                    articles = newArticles
                 } else {
                     lastDownloadedPage = 1
                     articles = response.articles
                 }
-                
+
                 let totalResults = response.totalResults
                 hasMorePages = articlesListCellViewModels.count < totalResults
-                
-            case .failure(let error):
+
+            case let .failure(error):
                 DispatchQueue.main.async {
                     self.delegate?.failedToLoadArticles(error: error)
                 }
             }
-            
+
             isLoading = false
         }
     }

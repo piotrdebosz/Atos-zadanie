@@ -5,17 +5,16 @@
 //  Created by Piotr Debosz on 21/04/2023.
 //
 
-import XCTest
 @testable import Atos
+import XCTest
 
 final class AtosTests: XCTestCase {
-
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        try super.tearDownWithError()
     }
 
     func testExample() throws {
@@ -28,9 +27,8 @@ final class AtosTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

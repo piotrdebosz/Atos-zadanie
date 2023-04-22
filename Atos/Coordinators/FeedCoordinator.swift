@@ -8,14 +8,13 @@ class FeedCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
     let feedViewModel: FeedViewModelType
-    
+
     private let dependencyContainer: DIContainerType
 
     init(navigationController: UINavigationController, dependencyContainer: DIContainerType) {
         self.navigationController = navigationController
         self.dependencyContainer = dependencyContainer
-        
-        
+
         let feedViewModel = dependencyContainer.resolve(FeedViewModelType.self)
         self.feedViewModel = feedViewModel
     }

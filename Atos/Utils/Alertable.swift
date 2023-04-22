@@ -15,7 +15,7 @@ extension Alertable where Self: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
-    
+
     func showAlertWithError(_ error: Error) {
         showAlertWithMessage(title: "Error", message: error.localizedDescription)
     }

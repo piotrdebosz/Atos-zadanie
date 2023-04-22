@@ -4,16 +4,16 @@ class ArticleView: UIView {
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         return scrollView
     }()
-    
+
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 8
-        
+
         return stackView
     }()
 
@@ -23,7 +23,7 @@ class ArticleView: UIView {
         label.numberOfLines = 0
         return label
     }()
-    
+
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.atosFont(ofSize: 14, weight: .regular)
@@ -31,7 +31,7 @@ class ArticleView: UIView {
 
         return label
     }()
-    
+
     let descriptionTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Description:"
@@ -41,7 +41,7 @@ class ArticleView: UIView {
 
         return label
     }()
-    
+
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.atosFont(ofSize: 14, weight: .regular)
@@ -49,7 +49,7 @@ class ArticleView: UIView {
 
         return label
     }()
-    
+
     let publishedAtTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Published at:"
@@ -58,7 +58,7 @@ class ArticleView: UIView {
 
         return label
     }()
-    
+
     let publishedAtLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.atosFont(ofSize: 14, weight: .regular)
@@ -66,12 +66,12 @@ class ArticleView: UIView {
 
         return label
     }()
-    
+
     let imageView: LoadingImageView = {
         let imageView = LoadingImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        
+
         return imageView
     }()
 
@@ -81,13 +81,14 @@ class ArticleView: UIView {
         setupConstraints()
     }
 
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     private func setupViews() {
         backgroundColor = .white
-        
+
         addSubview(scrollView)
         scrollView.addSubview(stackView)
 
@@ -98,26 +99,26 @@ class ArticleView: UIView {
         stackView.addArrangedSubview(publishedAtTitleLabel)
         stackView.addArrangedSubview(publishedAtLabel)
         stackView.addArrangedSubview(imageView)
-        
+
         stackView.setCustomSpacing(48, after: titleLabel)
         stackView.setCustomSpacing(24, after: descriptionTitleLabel)
         stackView.setCustomSpacing(24, after: descriptionLabel)
         stackView.setCustomSpacing(24, after: publishedAtLabel)
     }
-    
+
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
+
             stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32),
-            
+
             imageView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }

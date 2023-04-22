@@ -4,7 +4,7 @@ class LoginCoordinator: Coordinator {
     weak var parentCoordinator: AppCoordinator?
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
-    
+
     private let dependencyContainer: DIContainerType
 
     init(navigationController: UINavigationController, dependencyContainer: DIContainerType) {
