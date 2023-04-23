@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "1B3C975E-8224-4743-BDC1-0E9F3FA9D433",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Atos.xcodeproj",
+        "identifier" : "AF5A147829F2C8CE0067E183",
+        "name" : "AtosTests"
+      }
+    }
+  ],
+  "version" : 1
+}
