@@ -12,8 +12,8 @@ class AuthenticationMockService: AuthenticationServiceType {
     ]
 
     private let usersData: [User] = [
-        User(userName: "Admin", avatarFileName: "Admin.png"),
-        User(userName: "Kasia", avatarFileName: "Kasia.png")
+        User(userName: "Admin", avatarFileName: "Admin.png", lastLoginTime: Date()),
+        User(userName: "Kasia", avatarFileName: "Kasia.png", lastLoginTime: Date())
     ]
 
     private(set) var currentUser: User?

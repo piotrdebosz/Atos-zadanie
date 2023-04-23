@@ -1,6 +1,6 @@
 import Foundation
 
-class ImageLoader: ImageLoaderType {
+actor ImageLoader: ImageLoaderType {
     private let imageCache = NSCache<NSString, NSData>()
     private let urlSession: URLSession
 

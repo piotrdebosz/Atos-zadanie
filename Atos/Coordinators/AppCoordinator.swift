@@ -12,6 +12,10 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
+        // We always start with login coordinator because logged in user
+        // is not persisted. This is because there is no requirement
+        // to persist the user and there is no log out button.
+        // In the future we should check if there is already logged in user
         let loginCoordinator = LoginCoordinator(
             navigationController: navigationController,
             dependencyContainer: dependencyContainer
@@ -28,7 +32,18 @@ final class AppCoordinator: Coordinator {
             navigationController: navigationController,
             dependencyContainer: dependencyContainer
         )
+
         childCoordinators.append(homeCoordinator)
+
         homeCoordinator.start()
+
+        releaseLoginCoordinator()
+    }
+
+    func releaseLoginCoordinator() {
+        let loginCoordinator = childCoordinators.first { $0 is LoginCoordinator }
+        loginCoordinator?.stop()
+
+        childCoordinators = childCoordinators.filter { !($0 is LoginCoordinator) }
     }
 }

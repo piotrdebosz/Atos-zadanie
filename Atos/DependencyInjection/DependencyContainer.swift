@@ -38,15 +38,15 @@ class DependencyContainer: DependencyContainerType {
             LoginViewModel(authenticationService: resolver.resolve(AuthenticationServiceType.self))
         }
 
-        register(FeedViewModelType.self, scope: .transient) { resolver in
-            FeedViewModel(
+        register(NewsListViewModelType.self, scope: .transient) { resolver in
+            NewsListViewModel(
                 networkingService: resolver.resolve(NetworkingServiceType.self),
                 authenticationService: resolver.resolve(AuthenticationServiceType.self)
             )
         }
 
-        register(ArticleViewModelType.self, scope: .transient) { resolver, article in
-            ArticleViewModel(
+        register(ArticleDetailViewModelType.self, scope: .transient) { resolver, article in
+            ArticleDetailViewModel(
                 article: article,
                 imageLoader: resolver.resolve(ImageLoaderType.self)
             )

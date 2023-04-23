@@ -5,4 +5,9 @@ protocol Coordinator: AnyObject {
     var navigationController: UINavigationController { get }
 
     func start()
+    func stop()
+}
+
+extension Coordinator {
+    func stop() {}
 }

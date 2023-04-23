@@ -49,7 +49,7 @@ enum NewsAPI: API {
     }
 
     private var apiKey: String {
-        // I keep api key in Info.plist file
+        // Read api key from the Info.plist file
         guard let apiKey = Bundle.main.object(forInfoDictionaryKey: Constants.newsApiKey.rawValue) as? String else {
             fatalError("Missing news api key. \(Constants.newsApiKey.rawValue) not found in Info.plist")
         }
