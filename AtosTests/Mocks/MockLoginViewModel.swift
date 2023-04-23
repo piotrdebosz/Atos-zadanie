@@ -1,5 +1,5 @@
-import Foundation
 @testable import Atos
+import Foundation
 
 class MockLoginViewModel: LoginViewModelType {
     weak var delegate: LoginViewModelDelegate?

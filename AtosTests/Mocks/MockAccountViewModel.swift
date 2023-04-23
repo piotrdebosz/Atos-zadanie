@@ -1,5 +1,5 @@
-import Foundation
 @testable import Atos
+import Foundation
 
 class MockAccountViewModel: AccountViewModelType {
     var userName: String = "Mock User"

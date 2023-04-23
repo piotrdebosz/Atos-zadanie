@@ -1,5 +1,5 @@
-import XCTest
 @testable import Atos
+import XCTest
 
 class AuthenticationMockServiceTests: XCTestCase {
     private var authenticationService: AuthenticationMockService!
@@ -17,7 +17,7 @@ class AuthenticationMockServiceTests: XCTestCase {
     func testLoginSuccess() async {
         let result = await authenticationService.login(login: "Admin", password: "Admin1234")
         switch result {
-        case .success(let user):
+        case let .success(user):
             XCTAssertEqual(user.userName, "Admin")
             XCTAssertEqual(user.avatarFileName, "Admin.png")
         case .failure:
@@ -30,7 +30,7 @@ class AuthenticationMockServiceTests: XCTestCase {
         switch result {
         case .success:
             XCTFail("Login should have failed with missing user")
-        case .failure(let error):
+        case let .failure(error):
             XCTAssertEqual(error, AuthenticationError.missingUser)
         }
     }
@@ -40,7 +40,7 @@ class AuthenticationMockServiceTests: XCTestCase {
         switch result {
         case .success:
             XCTFail("Login should have failed with wrong password")
-        case .failure(let error):
+        case let .failure(error):
             XCTAssertEqual(error, AuthenticationError.wrongPassword)
         }
     }

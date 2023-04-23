@@ -1,5 +1,5 @@
-import Foundation
 @testable import Atos
+import Foundation
 
 extension Article {
     static var dummy: Article {

@@ -1,5 +1,5 @@
-import XCTest
 @testable import Atos
+import XCTest
 
 class AccountCoordinatorTests: XCTestCase {
     var navigationController: MockNavigationController!

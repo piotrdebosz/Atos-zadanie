@@ -1,5 +1,5 @@
-import Foundation
 @testable import Atos
+import Foundation
 
 class MockNewsListViewModel: NewsListViewModelType {
     weak var delegate: NewsListViewModelDelegate?
@@ -14,7 +14,7 @@ class MockNewsListViewModel: NewsListViewModelType {
     var refreshDataInitiatedByUserCalled = false
     var userSelectedArticleCalled = false
 
-    func newsItem(at index: Int) -> NewsListCellDataItem {
+    func newsItem(at _: Int) -> NewsListCellDataItem {
         return NewsListCellDataItem(author: "Mock Author", title: "Mock Title")
     }
 
@@ -30,7 +30,7 @@ class MockNewsListViewModel: NewsListViewModelType {
         refreshDataInitiatedByUserCalled = true
     }
 
-    func userSelectedArticle(at index: Int) {
+    func userSelectedArticle(at _: Int) {
         userSelectedArticleCalled = true
     }
 }

@@ -1,12 +1,12 @@
-import XCTest
 @testable import Atos
+import XCTest
 
 class MockDependencyContainer: DependencyContainerType {
-    var factories: [AnyHashable : Atos.DependencyEntryType] = [:]
-    var sharedDepenedencies: [AnyHashable : Any] = [:]
+    var factories: [AnyHashable: Atos.DependencyEntryType] = [:]
+    var sharedDepenedencies: [AnyHashable: Any] = [:]
 
     init() {
-        register(AuthenticationServiceType.self, scope: .shared) { resolver in
+        register(AuthenticationServiceType.self, scope: .shared) { _ in
             MockAuthenticationService()
         }
 

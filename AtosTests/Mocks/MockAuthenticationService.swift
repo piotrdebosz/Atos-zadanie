@@ -1,5 +1,5 @@
-import Foundation
 @testable import Atos
+import Foundation
 
 class MockAuthenticationService: AuthenticationServiceType {
     var currentUser: User? = User(userName: "Test", avatarFileName: "Test", lastLoginTime: Date())
@@ -11,7 +11,7 @@ class MockAuthenticationService: AuthenticationServiceType {
         if login == validLogin && password == validPassword {
             let user = User(userName: "Test", avatarFileName: "Test", lastLoginTime: Date())
 
-            self.currentUser = user
+            currentUser = user
             return .success(user)
         } else if login != validLogin {
             return .failure(.missingUser)

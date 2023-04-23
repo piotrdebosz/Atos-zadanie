@@ -1,5 +1,5 @@
-import Foundation
 @testable import Atos
+import Foundation
 
 class MockArticleDetailViewModel: ArticleDetailViewModelType {
     weak var delegate: ArticleDetailViewModelDelegate?

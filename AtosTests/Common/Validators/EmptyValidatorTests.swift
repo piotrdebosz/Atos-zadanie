@@ -1,5 +1,5 @@
-import XCTest
 @testable import Atos
+import XCTest
 
 class EmptyValidatorTests: XCTestCase {
     func testEmptyValidator_whenStringIsEmpty_returnsFalse() {

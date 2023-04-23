@@ -8,4 +8,3 @@ class MockNavigationController: UINavigationController {
         super.pushViewController(viewController, animated: animated)
     }
 }
-

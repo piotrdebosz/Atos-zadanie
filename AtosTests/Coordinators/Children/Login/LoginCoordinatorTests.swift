@@ -1,5 +1,5 @@
-import XCTest
 @testable import Atos
+import XCTest
 
 class LoginCoordinatorTests: XCTestCase {
     private var navigationController: UINavigationController!
@@ -44,4 +44,3 @@ class LoginCoordinatorTests: XCTestCase {
         XCTAssertTrue(mockAppCoordinator.didFinishLoginCalled)
     }
 }
-
