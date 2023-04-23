@@ -1,5 +1,5 @@
 ## Rozwiązanie
-- Założenia itp
+Projekt zakodowany w Xcode 14.3  
 
 ## Zadanie
 Proszę wykonać prosta aplikację o następującym logicFlow (figma link) z wykorzystaniem dostarczonych assetow (plik zip).
