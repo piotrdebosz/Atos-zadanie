@@ -23,7 +23,8 @@ final class NewsCoordinator: Coordinator {
         let articleDetailCoordinator = ArticleDetailCoordinator(
             article: article,
             navigationController: navigationController,
-            dependencyContainer: dependencyContainer)
+            dependencyContainer: dependencyContainer
+        )
 
         articleDetailCoordinator.delegate = self
 

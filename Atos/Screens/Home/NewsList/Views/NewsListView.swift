@@ -32,7 +32,6 @@ class NewsListView: UIView {
         footerActivityIndicator.translatesAutoresizingMaskIntoConstraints = false
     }
 
-
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),

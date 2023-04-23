@@ -27,6 +27,6 @@ final class ArticleDetailCoordinator: Coordinator {
 
 extension ArticleDetailCoordinator: ArticleDetailViewControllerDelegate {
     func viewDidDisappear() {
-        self.delegate?.didCloseArticle()
+        delegate?.didCloseArticle()
     }
 }
