@@ -1,3 +1,10 @@
+## Update - 24/04/2023
+Żeby nie wrzucać update do projektu po deadline to aktualizuje tylko README.md
+
+Sprawdziłem, czy projekt odpala sie w starszej wersji XCode 14.0 i wychodzi na to, że Xcode nie zachował kompatybilności wstecznej przy targetach.
+
+Aby odpalić projekt w Xcode 14.0 należy stworzyć nowy scheme wybierając odpowiedni target.
+
 ## Rozwiązanie
 Projekt zakodowany w Xcode 14.3  
 
